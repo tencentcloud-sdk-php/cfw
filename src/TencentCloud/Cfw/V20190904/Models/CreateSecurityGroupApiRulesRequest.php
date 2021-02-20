@@ -18,23 +18,23 @@ namespace TencentCloud\Cfw\V20190904\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DeleteAcRule请求参数结构体
+ * CreateSecurityGroupApiRules请求参数结构体
  *
- * @method integer getId() 获取删除规则对应的id值 669872
- * @method void setId(integer $Id) 设置删除规则对应的id值 669872
+ * @method array getData() 获取创建规则数据
+ * @method void setData(array $Data) 设置创建规则数据
  * @method integer getDirection() 获取方向，0：出站，1：入站
  * @method void setDirection(integer $Direction) 设置方向，0：出站，1：入站
- * @method string getEdgeId() 获取EdgeId值两个vpc间的边id
- * @method void setEdgeId(string $EdgeId) 设置EdgeId值两个vpc间的边id
- * @method string getArea() 获取NAT地域
- * @method void setArea(string $Area) 设置NAT地域
+ * @method integer getType() 获取0：后插，1：前插，2：中插
+ * @method void setType(integer $Type) 设置0：后插，1：前插，2：中插
+ * @method string getArea() 获取腾讯云地域的英文简写
+ * @method void setArea(string $Area) 设置腾讯云地域的英文简写
  */
-class DeleteAcRuleRequest extends AbstractModel
+class CreateSecurityGroupApiRulesRequest extends AbstractModel
 {
     /**
-     * @var integer 删除规则对应的id值 669872
+     * @var array 创建规则数据
      */
-    public $Id;
+    public $Data;
 
     /**
      * @var integer 方向，0：出站，1：入站
@@ -42,20 +42,20 @@ class DeleteAcRuleRequest extends AbstractModel
     public $Direction;
 
     /**
-     * @var string EdgeId值两个vpc间的边id
+     * @var integer 0：后插，1：前插，2：中插
      */
-    public $EdgeId;
+    public $Type;
 
     /**
-     * @var string NAT地域
+     * @var string 腾讯云地域的英文简写
      */
     public $Area;
 
     /**
-     * @param integer $Id 删除规则对应的id值 669872
+     * @param array $Data 创建规则数据
      * @param integer $Direction 方向，0：出站，1：入站
-     * @param string $EdgeId EdgeId值两个vpc间的边id
-     * @param string $Area NAT地域
+     * @param integer $Type 0：后插，1：前插，2：中插
+     * @param string $Area 腾讯云地域的英文简写
      */
     function __construct()
     {
@@ -70,16 +70,21 @@ class DeleteAcRuleRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Id",$param) and $param["Id"] !== null) {
-            $this->Id = $param["Id"];
+        if (array_key_exists("Data",$param) and $param["Data"] !== null) {
+            $this->Data = [];
+            foreach ($param["Data"] as $key => $value){
+                $obj = new SecurityGroupApiRuleData();
+                $obj->deserialize($value);
+                array_push($this->Data, $obj);
+            }
         }
 
         if (array_key_exists("Direction",$param) and $param["Direction"] !== null) {
             $this->Direction = $param["Direction"];
         }
 
-        if (array_key_exists("EdgeId",$param) and $param["EdgeId"] !== null) {
-            $this->EdgeId = $param["EdgeId"];
+        if (array_key_exists("Type",$param) and $param["Type"] !== null) {
+            $this->Type = $param["Type"];
         }
 
         if (array_key_exists("Area",$param) and $param["Area"] !== null) {

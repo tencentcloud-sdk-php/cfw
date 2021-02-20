@@ -18,29 +18,43 @@ namespace TencentCloud\Cfw\V20190904\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * ModifyAcRule返回参数结构体
+ * DescribeSecurityGroupList返回参数结构体
  *
- * @method integer getStatus() 获取状态值，0:操作成功，非0：操作失败
- * @method void setStatus(integer $Status) 设置状态值，0:操作成功，非0：操作失败
- * @method string getInfo() 获取返回多余的信息
+ * @method integer getTotal() 获取列表当前规则总条数
+ * @method void setTotal(integer $Total) 设置列表当前规则总条数
+ * @method array getData() 获取安全组规则列表数据
+ * @method void setData(array $Data) 设置安全组规则列表数据
+ * @method integer getAllTotal() 获取不算筛选条数的总条数
+ * @method void setAllTotal(integer $AllTotal) 设置不算筛选条数的总条数
+ * @method integer getEnable() 获取访问控制规则全部启用/全部停用
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setInfo(string $Info) 设置返回多余的信息
+ * @method void setEnable(integer $Enable) 设置访问控制规则全部启用/全部停用
 注意：此字段可能返回 null，表示取不到有效值。
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class ModifyAcRuleResponse extends AbstractModel
+class DescribeSecurityGroupListResponse extends AbstractModel
 {
     /**
-     * @var integer 状态值，0:操作成功，非0：操作失败
+     * @var integer 列表当前规则总条数
      */
-    public $Status;
+    public $Total;
 
     /**
-     * @var string 返回多余的信息
+     * @var array 安全组规则列表数据
+     */
+    public $Data;
+
+    /**
+     * @var integer 不算筛选条数的总条数
+     */
+    public $AllTotal;
+
+    /**
+     * @var integer 访问控制规则全部启用/全部停用
 注意：此字段可能返回 null，表示取不到有效值。
      */
-    public $Info;
+    public $Enable;
 
     /**
      * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -48,8 +62,10 @@ class ModifyAcRuleResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param integer $Status 状态值，0:操作成功，非0：操作失败
-     * @param string $Info 返回多余的信息
+     * @param integer $Total 列表当前规则总条数
+     * @param array $Data 安全组规则列表数据
+     * @param integer $AllTotal 不算筛选条数的总条数
+     * @param integer $Enable 访问控制规则全部启用/全部停用
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -66,12 +82,25 @@ class ModifyAcRuleResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Status",$param) and $param["Status"] !== null) {
-            $this->Status = $param["Status"];
+        if (array_key_exists("Total",$param) and $param["Total"] !== null) {
+            $this->Total = $param["Total"];
         }
 
-        if (array_key_exists("Info",$param) and $param["Info"] !== null) {
-            $this->Info = $param["Info"];
+        if (array_key_exists("Data",$param) and $param["Data"] !== null) {
+            $this->Data = [];
+            foreach ($param["Data"] as $key => $value){
+                $obj = new SecurityGroupListData();
+                $obj->deserialize($value);
+                array_push($this->Data, $obj);
+            }
+        }
+
+        if (array_key_exists("AllTotal",$param) and $param["AllTotal"] !== null) {
+            $this->AllTotal = $param["AllTotal"];
+        }
+
+        if (array_key_exists("Enable",$param) and $param["Enable"] !== null) {
+            $this->Enable = $param["Enable"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

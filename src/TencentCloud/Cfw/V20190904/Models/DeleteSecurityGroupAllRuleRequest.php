@@ -18,44 +18,28 @@ namespace TencentCloud\Cfw\V20190904\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DeleteAcRule请求参数结构体
+ * DeleteSecurityGroupAllRule请求参数结构体
  *
- * @method integer getId() 获取删除规则对应的id值 669872
- * @method void setId(integer $Id) 设置删除规则对应的id值 669872
  * @method integer getDirection() 获取方向，0：出站，1：入站
  * @method void setDirection(integer $Direction) 设置方向，0：出站，1：入站
- * @method string getEdgeId() 获取EdgeId值两个vpc间的边id
- * @method void setEdgeId(string $EdgeId) 设置EdgeId值两个vpc间的边id
- * @method string getArea() 获取NAT地域
- * @method void setArea(string $Area) 设置NAT地域
+ * @method string getArea() 获取腾讯云地域的英文简写
+ * @method void setArea(string $Area) 设置腾讯云地域的英文简写
  */
-class DeleteAcRuleRequest extends AbstractModel
+class DeleteSecurityGroupAllRuleRequest extends AbstractModel
 {
-    /**
-     * @var integer 删除规则对应的id值 669872
-     */
-    public $Id;
-
     /**
      * @var integer 方向，0：出站，1：入站
      */
     public $Direction;
 
     /**
-     * @var string EdgeId值两个vpc间的边id
-     */
-    public $EdgeId;
-
-    /**
-     * @var string NAT地域
+     * @var string 腾讯云地域的英文简写
      */
     public $Area;
 
     /**
-     * @param integer $Id 删除规则对应的id值 669872
      * @param integer $Direction 方向，0：出站，1：入站
-     * @param string $EdgeId EdgeId值两个vpc间的边id
-     * @param string $Area NAT地域
+     * @param string $Area 腾讯云地域的英文简写
      */
     function __construct()
     {
@@ -70,16 +54,8 @@ class DeleteAcRuleRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Id",$param) and $param["Id"] !== null) {
-            $this->Id = $param["Id"];
-        }
-
         if (array_key_exists("Direction",$param) and $param["Direction"] !== null) {
             $this->Direction = $param["Direction"];
-        }
-
-        if (array_key_exists("EdgeId",$param) and $param["EdgeId"] !== null) {
-            $this->EdgeId = $param["EdgeId"];
         }
 
         if (array_key_exists("Area",$param) and $param["Area"] !== null) {

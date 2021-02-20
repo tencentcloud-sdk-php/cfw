@@ -18,19 +18,32 @@ namespace TencentCloud\Cfw\V20190904\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * ModifyItemSwitchStatus返回参数结构体
+ * DescribeAssociatedInstanceList返回参数结构体
  *
- * @method integer getStatus() 获取修改成功与否状态值 0：修改成功，非 0：修改失败
- * @method void setStatus(integer $Status) 设置修改成功与否状态值 0：修改成功，非 0：修改失败
+ * @method integer getTotal() 获取实例数量
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setTotal(integer $Total) 设置实例数量
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method array getData() 获取实例列表
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setData(array $Data) 设置实例列表
+注意：此字段可能返回 null，表示取不到有效值。
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class ModifyItemSwitchStatusResponse extends AbstractModel
+class DescribeAssociatedInstanceListResponse extends AbstractModel
 {
     /**
-     * @var integer 修改成功与否状态值 0：修改成功，非 0：修改失败
+     * @var integer 实例数量
+注意：此字段可能返回 null，表示取不到有效值。
      */
-    public $Status;
+    public $Total;
+
+    /**
+     * @var array 实例列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $Data;
 
     /**
      * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -38,7 +51,10 @@ class ModifyItemSwitchStatusResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param integer $Status 修改成功与否状态值 0：修改成功，非 0：修改失败
+     * @param integer $Total 实例数量
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param array $Data 实例列表
+注意：此字段可能返回 null，表示取不到有效值。
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -54,8 +70,17 @@ class ModifyItemSwitchStatusResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Status",$param) and $param["Status"] !== null) {
-            $this->Status = $param["Status"];
+        if (array_key_exists("Total",$param) and $param["Total"] !== null) {
+            $this->Total = $param["Total"];
+        }
+
+        if (array_key_exists("Data",$param) and $param["Data"] !== null) {
+            $this->Data = [];
+            foreach ($param["Data"] as $key => $value){
+                $obj = new AssociatedInstanceInfo();
+                $obj->deserialize($value);
+                array_push($this->Data, $obj);
+            }
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

@@ -18,17 +18,20 @@ namespace TencentCloud\Cfw\V20190904\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * ModifyItemSwitchStatus返回参数结构体
+ * ModifySecurityGroupAllRuleStatus返回参数结构体
  *
- * @method integer getStatus() 获取修改成功与否状态值 0：修改成功，非 0：修改失败
- * @method void setStatus(integer $Status) 设置修改成功与否状态值 0：修改成功，非 0：修改失败
+ * @method integer getStatus() 获取0: 修改成功, 其他: 修改失败
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setStatus(integer $Status) 设置0: 修改成功, 其他: 修改失败
+注意：此字段可能返回 null，表示取不到有效值。
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class ModifyItemSwitchStatusResponse extends AbstractModel
+class ModifySecurityGroupAllRuleStatusResponse extends AbstractModel
 {
     /**
-     * @var integer 修改成功与否状态值 0：修改成功，非 0：修改失败
+     * @var integer 0: 修改成功, 其他: 修改失败
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Status;
 
@@ -38,7 +41,8 @@ class ModifyItemSwitchStatusResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param integer $Status 修改成功与否状态值 0：修改成功，非 0：修改失败
+     * @param integer $Status 0: 修改成功, 其他: 修改失败
+注意：此字段可能返回 null，表示取不到有效值。
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()

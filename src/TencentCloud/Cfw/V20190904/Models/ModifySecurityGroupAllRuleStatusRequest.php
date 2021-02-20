@@ -18,23 +18,23 @@ namespace TencentCloud\Cfw\V20190904\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DeleteAcRule请求参数结构体
+ * ModifySecurityGroupAllRuleStatus请求参数结构体
  *
- * @method integer getId() 获取删除规则对应的id值 669872
- * @method void setId(integer $Id) 设置删除规则对应的id值 669872
+ * @method integer getStatus() 获取列表规则状态，0：全部停用，1：全部启用
+ * @method void setStatus(integer $Status) 设置列表规则状态，0：全部停用，1：全部启用
  * @method integer getDirection() 获取方向，0：出站，1：入站
  * @method void setDirection(integer $Direction) 设置方向，0：出站，1：入站
- * @method string getEdgeId() 获取EdgeId值两个vpc间的边id
- * @method void setEdgeId(string $EdgeId) 设置EdgeId值两个vpc间的边id
+ * @method string getEdgeId() 获取Edge ID值
+ * @method void setEdgeId(string $EdgeId) 设置Edge ID值
  * @method string getArea() 获取NAT地域
  * @method void setArea(string $Area) 设置NAT地域
  */
-class DeleteAcRuleRequest extends AbstractModel
+class ModifySecurityGroupAllRuleStatusRequest extends AbstractModel
 {
     /**
-     * @var integer 删除规则对应的id值 669872
+     * @var integer 列表规则状态，0：全部停用，1：全部启用
      */
-    public $Id;
+    public $Status;
 
     /**
      * @var integer 方向，0：出站，1：入站
@@ -42,7 +42,7 @@ class DeleteAcRuleRequest extends AbstractModel
     public $Direction;
 
     /**
-     * @var string EdgeId值两个vpc间的边id
+     * @var string Edge ID值
      */
     public $EdgeId;
 
@@ -52,9 +52,9 @@ class DeleteAcRuleRequest extends AbstractModel
     public $Area;
 
     /**
-     * @param integer $Id 删除规则对应的id值 669872
+     * @param integer $Status 列表规则状态，0：全部停用，1：全部启用
      * @param integer $Direction 方向，0：出站，1：入站
-     * @param string $EdgeId EdgeId值两个vpc间的边id
+     * @param string $EdgeId Edge ID值
      * @param string $Area NAT地域
      */
     function __construct()
@@ -70,8 +70,8 @@ class DeleteAcRuleRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Id",$param) and $param["Id"] !== null) {
-            $this->Id = $param["Id"];
+        if (array_key_exists("Status",$param) and $param["Status"] !== null) {
+            $this->Status = $param["Status"];
         }
 
         if (array_key_exists("Direction",$param) and $param["Direction"] !== null) {

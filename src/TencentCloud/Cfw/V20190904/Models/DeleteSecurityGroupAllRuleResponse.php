@@ -18,19 +18,29 @@ namespace TencentCloud\Cfw\V20190904\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * ModifyItemSwitchStatus返回参数结构体
+ * DeleteSecurityGroupAllRule返回参数结构体
  *
- * @method integer getStatus() 获取修改成功与否状态值 0：修改成功，非 0：修改失败
- * @method void setStatus(integer $Status) 设置修改成功与否状态值 0：修改成功，非 0：修改失败
+ * @method integer getStatus() 获取0: 操作成功，非0：操作失败
+ * @method void setStatus(integer $Status) 设置0: 操作成功，非0：操作失败
+ * @method integer getInfo() 获取返回数据的json字符串
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setInfo(integer $Info) 设置返回数据的json字符串
+注意：此字段可能返回 null，表示取不到有效值。
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class ModifyItemSwitchStatusResponse extends AbstractModel
+class DeleteSecurityGroupAllRuleResponse extends AbstractModel
 {
     /**
-     * @var integer 修改成功与否状态值 0：修改成功，非 0：修改失败
+     * @var integer 0: 操作成功，非0：操作失败
      */
     public $Status;
+
+    /**
+     * @var integer 返回数据的json字符串
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $Info;
 
     /**
      * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -38,7 +48,9 @@ class ModifyItemSwitchStatusResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param integer $Status 修改成功与否状态值 0：修改成功，非 0：修改失败
+     * @param integer $Status 0: 操作成功，非0：操作失败
+     * @param integer $Info 返回数据的json字符串
+注意：此字段可能返回 null，表示取不到有效值。
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -56,6 +68,10 @@ class ModifyItemSwitchStatusResponse extends AbstractModel
         }
         if (array_key_exists("Status",$param) and $param["Status"] !== null) {
             $this->Status = $param["Status"];
+        }
+
+        if (array_key_exists("Info",$param) and $param["Info"] !== null) {
+            $this->Info = $param["Info"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
