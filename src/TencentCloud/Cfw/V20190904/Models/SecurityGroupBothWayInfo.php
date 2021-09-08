@@ -28,17 +28,17 @@ use TencentCloud\Common\AbstractModel;
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setSourceId(string $SourceId) 设置访问源
 注意：此字段可能返回 null，表示取不到有效值。
- * @method integer getSourceType() 获取访问源类型，默认为0，1: VPC, 2: SUBNET, 3: CVM, 4: CLB, 5: ENI, 6: CDB, 100:资源组
+ * @method integer getSourceType() 获取访问源类型，默认为0，0: IP, 1: VPC, 2: SUBNET, 3: CVM, 4: CLB, 5: ENI, 6: CDB, 7: 参数模板, 100: 资产分组
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setSourceType(integer $SourceType) 设置访问源类型，默认为0，1: VPC, 2: SUBNET, 3: CVM, 4: CLB, 5: ENI, 6: CDB, 100:资源组
+ * @method void setSourceType(integer $SourceType) 设置访问源类型，默认为0，0: IP, 1: VPC, 2: SUBNET, 3: CVM, 4: CLB, 5: ENI, 6: CDB, 7: 参数模板, 100: 资产分组
 注意：此字段可能返回 null，表示取不到有效值。
  * @method string getTargetId() 获取访问目的
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setTargetId(string $TargetId) 设置访问目的
 注意：此字段可能返回 null，表示取不到有效值。
- * @method integer getTargetType() 获取访问目的类型，默认为0，1: VPC, 2: SUBNET, 3: CVM, 4: CLB, 5: ENI, 6: CDB, 100:资源组
+ * @method integer getTargetType() 获取访问目的类型，默认为0，0: IP, 1: VPC, 2: SUBNET, 3: CVM, 4: CLB, 5: ENI, 6: CDB, 7: 参数模板, 100: 资产分组
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setTargetType(integer $TargetType) 设置访问目的类型，默认为0，1: VPC, 2: SUBNET, 3: CVM, 4: CLB, 5: ENI, 6: CDB, 100:资源组
+ * @method void setTargetType(integer $TargetType) 设置访问目的类型，默认为0，0: IP, 1: VPC, 2: SUBNET, 3: CVM, 4: CLB, 5: ENI, 6: CDB, 7: 参数模板, 100: 资产分组
 注意：此字段可能返回 null，表示取不到有效值。
  * @method string getProtocol() 获取协议
 注意：此字段可能返回 null，表示取不到有效值。
@@ -82,9 +82,9 @@ use TencentCloud\Common\AbstractModel;
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setSubnetId(string $SubnetId) 设置子网ID
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getInstanceName() 获取子网ID
+ * @method string getInstanceName() 获取实例名称
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setInstanceName(string $InstanceName) 设置子网ID
+ * @method void setInstanceName(string $InstanceName) 设置实例名称
 注意：此字段可能返回 null，表示取不到有效值。
  * @method string getPublicIp() 获取公网IP，多个以英文逗号分隔
 注意：此字段可能返回 null，表示取不到有效值。
@@ -102,6 +102,8 @@ use TencentCloud\Common\AbstractModel;
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setServiceTemplateId(string $ServiceTemplateId) 设置端口协议类型参数模板id
 注意：此字段可能返回 null，表示取不到有效值。
+ * @method integer getProtocolPortType() 获取是否使用端口协议模板，0：否，1：是
+ * @method void setProtocolPortType(integer $ProtocolPortType) 设置是否使用端口协议模板，0：否，1：是
  */
 class SecurityGroupBothWayInfo extends AbstractModel
 {
@@ -118,7 +120,7 @@ class SecurityGroupBothWayInfo extends AbstractModel
     public $SourceId;
 
     /**
-     * @var integer 访问源类型，默认为0，1: VPC, 2: SUBNET, 3: CVM, 4: CLB, 5: ENI, 6: CDB, 100:资源组
+     * @var integer 访问源类型，默认为0，0: IP, 1: VPC, 2: SUBNET, 3: CVM, 4: CLB, 5: ENI, 6: CDB, 7: 参数模板, 100: 资产分组
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $SourceType;
@@ -130,7 +132,7 @@ class SecurityGroupBothWayInfo extends AbstractModel
     public $TargetId;
 
     /**
-     * @var integer 访问目的类型，默认为0，1: VPC, 2: SUBNET, 3: CVM, 4: CLB, 5: ENI, 6: CDB, 100:资源组
+     * @var integer 访问目的类型，默认为0，0: IP, 1: VPC, 2: SUBNET, 3: CVM, 4: CLB, 5: ENI, 6: CDB, 7: 参数模板, 100: 资产分组
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $TargetType;
@@ -201,7 +203,7 @@ class SecurityGroupBothWayInfo extends AbstractModel
     public $SubnetId;
 
     /**
-     * @var string 子网ID
+     * @var string 实例名称
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $InstanceName;
@@ -231,15 +233,20 @@ class SecurityGroupBothWayInfo extends AbstractModel
     public $ServiceTemplateId;
 
     /**
+     * @var integer 是否使用端口协议模板，0：否，1：是
+     */
+    public $ProtocolPortType;
+
+    /**
      * @param integer $OrderIndex 执行顺序
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $SourceId 访问源
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param integer $SourceType 访问源类型，默认为0，1: VPC, 2: SUBNET, 3: CVM, 4: CLB, 5: ENI, 6: CDB, 100:资源组
+     * @param integer $SourceType 访问源类型，默认为0，0: IP, 1: VPC, 2: SUBNET, 3: CVM, 4: CLB, 5: ENI, 6: CDB, 7: 参数模板, 100: 资产分组
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $TargetId 访问目的
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param integer $TargetType 访问目的类型，默认为0，1: VPC, 2: SUBNET, 3: CVM, 4: CLB, 5: ENI, 6: CDB, 100:资源组
+     * @param integer $TargetType 访问目的类型，默认为0，0: IP, 1: VPC, 2: SUBNET, 3: CVM, 4: CLB, 5: ENI, 6: CDB, 7: 参数模板, 100: 资产分组
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $Protocol 协议
 注意：此字段可能返回 null，表示取不到有效值。
@@ -262,7 +269,7 @@ class SecurityGroupBothWayInfo extends AbstractModel
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $SubnetId 子网ID
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $InstanceName 子网ID
+     * @param string $InstanceName 实例名称
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $PublicIp 公网IP，多个以英文逗号分隔
 注意：此字段可能返回 null，表示取不到有效值。
@@ -272,6 +279,7 @@ class SecurityGroupBothWayInfo extends AbstractModel
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $ServiceTemplateId 端口协议类型参数模板id
 注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $ProtocolPortType 是否使用端口协议模板，0：否，1：是
      */
     function __construct()
     {
@@ -368,6 +376,10 @@ class SecurityGroupBothWayInfo extends AbstractModel
 
         if (array_key_exists("ServiceTemplateId",$param) and $param["ServiceTemplateId"] !== null) {
             $this->ServiceTemplateId = $param["ServiceTemplateId"];
+        }
+
+        if (array_key_exists("ProtocolPortType",$param) and $param["ProtocolPortType"] !== null) {
+            $this->ProtocolPortType = $param["ProtocolPortType"];
         }
     }
 }
