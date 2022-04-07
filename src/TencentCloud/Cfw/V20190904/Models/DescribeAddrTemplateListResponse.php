@@ -20,29 +20,29 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeAddrTemplateList返回参数结构体
  *
- * @method integer getTotal() 获取模版总数
- * @method void setTotal(integer $Total) 设置模版总数
- * @method array getData() 获取模版列表数据
- * @method void setData(array $Data) 设置模版列表数据
- * @method array getNameList() 获取模版名称列表
- * @method void setNameList(array $NameList) 设置模版名称列表
+ * @method integer getTotal() 获取模板总数
+ * @method void setTotal(integer $Total) 设置模板总数
+ * @method array getData() 获取模板列表数据
+ * @method void setData(array $Data) 设置模板列表数据
+ * @method array getNameList() 获取模板名称列表
+ * @method void setNameList(array $NameList) 设置模板名称列表
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
 class DescribeAddrTemplateListResponse extends AbstractModel
 {
     /**
-     * @var integer 模版总数
+     * @var integer 模板总数
      */
     public $Total;
 
     /**
-     * @var array 模版列表数据
+     * @var array 模板列表数据
      */
     public $Data;
 
     /**
-     * @var array 模版名称列表
+     * @var array 模板名称列表
      */
     public $NameList;
 
@@ -52,9 +52,9 @@ class DescribeAddrTemplateListResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param integer $Total 模版总数
-     * @param array $Data 模版列表数据
-     * @param array $NameList 模版名称列表
+     * @param integer $Total 模板总数
+     * @param array $Data 模板列表数据
+     * @param array $NameList 模板名称列表
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
