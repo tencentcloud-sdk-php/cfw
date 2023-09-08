@@ -18,19 +18,22 @@ namespace TencentCloud\Cfw\V20190904\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * CreateBlockIgnoreRuleList返回参数结构体
+ * CreateVpcFwGroup返回参数结构体
  *
- * @method array getList() 获取成功返回
- * @method void setList(array $List) 设置成功返回
+ * @method string getFwGroupId() 获取防火墙组ID
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setFwGroupId(string $FwGroupId) 设置防火墙组ID
+注意：此字段可能返回 null，表示取不到有效值。
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class CreateBlockIgnoreRuleListResponse extends AbstractModel
+class CreateVpcFwGroupResponse extends AbstractModel
 {
     /**
-     * @var array 成功返回
+     * @var string 防火墙组ID
+注意：此字段可能返回 null，表示取不到有效值。
      */
-    public $List;
+    public $FwGroupId;
 
     /**
      * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -38,7 +41,8 @@ class CreateBlockIgnoreRuleListResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param array $List 成功返回
+     * @param string $FwGroupId 防火墙组ID
+注意：此字段可能返回 null，表示取不到有效值。
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -54,13 +58,8 @@ class CreateBlockIgnoreRuleListResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("List",$param) and $param["List"] !== null) {
-            $this->List = [];
-            foreach ($param["List"] as $key => $value){
-                $obj = new IocListData();
-                $obj->deserialize($value);
-                array_push($this->List, $obj);
-            }
+        if (array_key_exists("FwGroupId",$param) and $param["FwGroupId"] !== null) {
+            $this->FwGroupId = $param["FwGroupId"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

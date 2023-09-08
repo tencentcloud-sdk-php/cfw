@@ -18,19 +18,19 @@ namespace TencentCloud\Cfw\V20190904\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * CreateBlockIgnoreRuleList返回参数结构体
+ * ModifyAclRule返回参数结构体
  *
- * @method array getList() 获取成功返回
- * @method void setList(array $List) 设置成功返回
+ * @method array getRuleUuid() 获取编辑成功后返回新策略ID列表
+ * @method void setRuleUuid(array $RuleUuid) 设置编辑成功后返回新策略ID列表
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class CreateBlockIgnoreRuleListResponse extends AbstractModel
+class ModifyAclRuleResponse extends AbstractModel
 {
     /**
-     * @var array 成功返回
+     * @var array 编辑成功后返回新策略ID列表
      */
-    public $List;
+    public $RuleUuid;
 
     /**
      * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -38,7 +38,7 @@ class CreateBlockIgnoreRuleListResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param array $List 成功返回
+     * @param array $RuleUuid 编辑成功后返回新策略ID列表
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -54,13 +54,8 @@ class CreateBlockIgnoreRuleListResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("List",$param) and $param["List"] !== null) {
-            $this->List = [];
-            foreach ($param["List"] as $key => $value){
-                $obj = new IocListData();
-                $obj->deserialize($value);
-                array_push($this->List, $obj);
-            }
+        if (array_key_exists("RuleUuid",$param) and $param["RuleUuid"] !== null) {
+            $this->RuleUuid = $param["RuleUuid"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

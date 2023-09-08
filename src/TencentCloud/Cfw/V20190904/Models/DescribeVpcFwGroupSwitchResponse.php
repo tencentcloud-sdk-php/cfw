@@ -18,19 +18,32 @@ namespace TencentCloud\Cfw\V20190904\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * CreateBlockIgnoreRuleList返回参数结构体
+ * DescribeVpcFwGroupSwitch返回参数结构体
  *
- * @method array getList() 获取成功返回
- * @method void setList(array $List) 设置成功返回
+ * @method array getSwitchList() 获取开关列表
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setSwitchList(array $SwitchList) 设置开关列表
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method integer getTotal() 获取开关总个数
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setTotal(integer $Total) 设置开关总个数
+注意：此字段可能返回 null，表示取不到有效值。
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class CreateBlockIgnoreRuleListResponse extends AbstractModel
+class DescribeVpcFwGroupSwitchResponse extends AbstractModel
 {
     /**
-     * @var array 成功返回
+     * @var array 开关列表
+注意：此字段可能返回 null，表示取不到有效值。
      */
-    public $List;
+    public $SwitchList;
+
+    /**
+     * @var integer 开关总个数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $Total;
 
     /**
      * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -38,7 +51,10 @@ class CreateBlockIgnoreRuleListResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param array $List 成功返回
+     * @param array $SwitchList 开关列表
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $Total 开关总个数
+注意：此字段可能返回 null，表示取不到有效值。
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -54,13 +70,17 @@ class CreateBlockIgnoreRuleListResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("List",$param) and $param["List"] !== null) {
-            $this->List = [];
-            foreach ($param["List"] as $key => $value){
-                $obj = new IocListData();
+        if (array_key_exists("SwitchList",$param) and $param["SwitchList"] !== null) {
+            $this->SwitchList = [];
+            foreach ($param["SwitchList"] as $key => $value){
+                $obj = new FwGroupSwitchShow();
                 $obj->deserialize($value);
-                array_push($this->List, $obj);
+                array_push($this->SwitchList, $obj);
             }
+        }
+
+        if (array_key_exists("Total",$param) and $param["Total"] !== null) {
+            $this->Total = $param["Total"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

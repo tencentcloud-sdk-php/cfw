@@ -18,19 +18,26 @@ namespace TencentCloud\Cfw\V20190904\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * CreateBlockIgnoreRuleList返回参数结构体
+ * DescribeVpcAcRule返回参数结构体
  *
- * @method array getList() 获取成功返回
- * @method void setList(array $List) 设置成功返回
+ * @method integer getTotal() 获取总条数
+ * @method void setTotal(integer $Total) 设置总条数
+ * @method array getData() 获取内网间访问控制列表数据
+ * @method void setData(array $Data) 设置内网间访问控制列表数据
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class CreateBlockIgnoreRuleListResponse extends AbstractModel
+class DescribeVpcAcRuleResponse extends AbstractModel
 {
     /**
-     * @var array 成功返回
+     * @var integer 总条数
      */
-    public $List;
+    public $Total;
+
+    /**
+     * @var array 内网间访问控制列表数据
+     */
+    public $Data;
 
     /**
      * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -38,7 +45,8 @@ class CreateBlockIgnoreRuleListResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param array $List 成功返回
+     * @param integer $Total 总条数
+     * @param array $Data 内网间访问控制列表数据
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -54,12 +62,16 @@ class CreateBlockIgnoreRuleListResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("List",$param) and $param["List"] !== null) {
-            $this->List = [];
-            foreach ($param["List"] as $key => $value){
-                $obj = new IocListData();
+        if (array_key_exists("Total",$param) and $param["Total"] !== null) {
+            $this->Total = $param["Total"];
+        }
+
+        if (array_key_exists("Data",$param) and $param["Data"] !== null) {
+            $this->Data = [];
+            foreach ($param["Data"] as $key => $value){
+                $obj = new VpcRuleItem();
                 $obj->deserialize($value);
-                array_push($this->List, $obj);
+                array_push($this->Data, $obj);
             }
         }
 
