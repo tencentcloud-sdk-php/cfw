@@ -18,20 +18,20 @@ namespace TencentCloud\Cfw\V20190904\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * ModifyClusterNatFwSwitch请求参数结构体
+ * DescribeOfflineExportTemporaryCredentials请求参数结构体
  *
- * @method NatCcnSwitchConfig getNatCcnSwitch() 获取<p>NAT CCN防火墙开关配置</p>
- * @method void setNatCcnSwitch(NatCcnSwitchConfig $NatCcnSwitch) 设置<p>NAT CCN防火墙开关配置</p>
+ * @method string getTaskId() 获取<p>任务ID</p>
+ * @method void setTaskId(string $TaskId) 设置<p>任务ID</p>
  */
-class ModifyClusterNatFwSwitchRequest extends AbstractModel
+class DescribeOfflineExportTemporaryCredentialsRequest extends AbstractModel
 {
     /**
-     * @var NatCcnSwitchConfig <p>NAT CCN防火墙开关配置</p>
+     * @var string <p>任务ID</p>
      */
-    public $NatCcnSwitch;
+    public $TaskId;
 
     /**
-     * @param NatCcnSwitchConfig $NatCcnSwitch <p>NAT CCN防火墙开关配置</p>
+     * @param string $TaskId <p>任务ID</p>
      */
     function __construct()
     {
@@ -46,9 +46,8 @@ class ModifyClusterNatFwSwitchRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("NatCcnSwitch",$param) and $param["NatCcnSwitch"] !== null) {
-            $this->NatCcnSwitch = new NatCcnSwitchConfig();
-            $this->NatCcnSwitch->deserialize($param["NatCcnSwitch"]);
+        if (array_key_exists("TaskId",$param) and $param["TaskId"] !== null) {
+            $this->TaskId = $param["TaskId"];
         }
     }
 }

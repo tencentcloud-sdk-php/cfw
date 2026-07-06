@@ -18,26 +18,26 @@ namespace TencentCloud\Cfw\V20190904\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * AddEnterpriseSecurityGroupRules返回参数结构体
+ * RemoveOfflineExportTask返回参数结构体
  *
- * @method integer getStatus() 获取<p>状态值，0：添加成功，非0：添加失败</p>
- * @method void setStatus(integer $Status) 设置<p>状态值，0：添加成功，非0：添加失败</p>
- * @method array getRules() 获取<p>添加成功的规则详情</p>
- * @method void setRules(array $Rules) 设置<p>添加成功的规则详情</p>
+ * @method integer getReturnCode() 获取返回状态码 0 成功 非0不成功
+ * @method void setReturnCode(integer $ReturnCode) 设置返回状态码 0 成功 非0不成功
+ * @method string getReturnMsg() 获取返回信息  success 成功 其他 不成功
+ * @method void setReturnMsg(string $ReturnMsg) 设置返回信息  success 成功 其他 不成功
  * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
-class AddEnterpriseSecurityGroupRulesResponse extends AbstractModel
+class RemoveOfflineExportTaskResponse extends AbstractModel
 {
     /**
-     * @var integer <p>状态值，0：添加成功，非0：添加失败</p>
+     * @var integer 返回状态码 0 成功 非0不成功
      */
-    public $Status;
+    public $ReturnCode;
 
     /**
-     * @var array <p>添加成功的规则详情</p>
+     * @var string 返回信息  success 成功 其他 不成功
      */
-    public $Rules;
+    public $ReturnMsg;
 
     /**
      * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
@@ -45,8 +45,8 @@ class AddEnterpriseSecurityGroupRulesResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param integer $Status <p>状态值，0：添加成功，非0：添加失败</p>
-     * @param array $Rules <p>添加成功的规则详情</p>
+     * @param integer $ReturnCode 返回状态码 0 成功 非0不成功
+     * @param string $ReturnMsg 返回信息  success 成功 其他 不成功
      * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -62,17 +62,12 @@ class AddEnterpriseSecurityGroupRulesResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Status",$param) and $param["Status"] !== null) {
-            $this->Status = $param["Status"];
+        if (array_key_exists("ReturnCode",$param) and $param["ReturnCode"] !== null) {
+            $this->ReturnCode = $param["ReturnCode"];
         }
 
-        if (array_key_exists("Rules",$param) and $param["Rules"] !== null) {
-            $this->Rules = [];
-            foreach ($param["Rules"] as $key => $value){
-                $obj = new SecurityGroupSimplifyRule();
-                $obj->deserialize($value);
-                array_push($this->Rules, $obj);
-            }
+        if (array_key_exists("ReturnMsg",$param) and $param["ReturnMsg"] !== null) {
+            $this->ReturnMsg = $param["ReturnMsg"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
