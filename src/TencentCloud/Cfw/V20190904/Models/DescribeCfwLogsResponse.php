@@ -18,33 +18,19 @@ namespace TencentCloud\Cfw\V20190904\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * CreateAlertCenterOmit返回参数结构体
+ * DescribeCfwLogs返回参数结构体
  *
- * @method integer getReturnCode() 获取<p>返回状态码：<br>0 成功<br>非0 失败</p>
- * @method void setReturnCode(integer $ReturnCode) 设置<p>返回状态码：<br>0 成功<br>非0 失败</p>
- * @method string getReturnMsg() 获取<p>返回信息：<br>success 成功<br>其他</p>
- * @method void setReturnMsg(string $ReturnMsg) 设置<p>返回信息：<br>success 成功<br>其他</p>
- * @method integer getStatus() 获取<p>处置状态码：<br>0  处置成功<br>-1 通用错误，不用处理<br>-3 表示重复，需重新刷新列表<br>其他</p>
- * @method void setStatus(integer $Status) 设置<p>处置状态码：<br>0  处置成功<br>-1 通用错误，不用处理<br>-3 表示重复，需重新刷新列表<br>其他</p>
+ * @method string getData() 获取<p>查询结果。UTF-8 JSON object 字符串；调用方需解析 Response.Data。</p>
+ * @method void setData(string $Data) 设置<p>查询结果。UTF-8 JSON object 字符串；调用方需解析 Response.Data。</p>
  * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
-class CreateAlertCenterOmitResponse extends AbstractModel
+class DescribeCfwLogsResponse extends AbstractModel
 {
     /**
-     * @var integer <p>返回状态码：<br>0 成功<br>非0 失败</p>
+     * @var string <p>查询结果。UTF-8 JSON object 字符串；调用方需解析 Response.Data。</p>
      */
-    public $ReturnCode;
-
-    /**
-     * @var string <p>返回信息：<br>success 成功<br>其他</p>
-     */
-    public $ReturnMsg;
-
-    /**
-     * @var integer <p>处置状态码：<br>0  处置成功<br>-1 通用错误，不用处理<br>-3 表示重复，需重新刷新列表<br>其他</p>
-     */
-    public $Status;
+    public $Data;
 
     /**
      * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
@@ -52,9 +38,7 @@ class CreateAlertCenterOmitResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param integer $ReturnCode <p>返回状态码：<br>0 成功<br>非0 失败</p>
-     * @param string $ReturnMsg <p>返回信息：<br>success 成功<br>其他</p>
-     * @param integer $Status <p>处置状态码：<br>0  处置成功<br>-1 通用错误，不用处理<br>-3 表示重复，需重新刷新列表<br>其他</p>
+     * @param string $Data <p>查询结果。UTF-8 JSON object 字符串；调用方需解析 Response.Data。</p>
      * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -70,16 +54,8 @@ class CreateAlertCenterOmitResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("ReturnCode",$param) and $param["ReturnCode"] !== null) {
-            $this->ReturnCode = $param["ReturnCode"];
-        }
-
-        if (array_key_exists("ReturnMsg",$param) and $param["ReturnMsg"] !== null) {
-            $this->ReturnMsg = $param["ReturnMsg"];
-        }
-
-        if (array_key_exists("Status",$param) and $param["Status"] !== null) {
-            $this->Status = $param["Status"];
+        if (array_key_exists("Data",$param) and $param["Data"] !== null) {
+            $this->Data = $param["Data"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
