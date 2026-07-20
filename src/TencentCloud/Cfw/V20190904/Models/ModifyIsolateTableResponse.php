@@ -18,33 +18,26 @@ namespace TencentCloud\Cfw\V20190904\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeNatFwVpcDnsLst返回参数结构体
+ * ModifyIsolateTable返回参数结构体
  *
- * @method array getVpcDnsSwitchLst() 获取<p>nat防火墙vpc dns 信息数组</p>
- * @method void setVpcDnsSwitchLst(array $VpcDnsSwitchLst) 设置<p>nat防火墙vpc dns 信息数组</p>
- * @method string getReturnMsg() 获取<p>返回参数 success成功 failed 失败</p>
- * @method void setReturnMsg(string $ReturnMsg) 设置<p>返回参数 success成功 failed 失败</p>
- * @method integer getTotal() 获取<p>开关总条数</p>
- * @method void setTotal(integer $Total) 设置<p>开关总条数</p>
+ * @method integer getReturnCode() 获取<p>0 成功  非0失败</p>
+ * @method void setReturnCode(integer $ReturnCode) 设置<p>0 成功  非0失败</p>
+ * @method string getReturnMsg() 获取<p>success 成功 其他失败</p>
+ * @method void setReturnMsg(string $ReturnMsg) 设置<p>success 成功 其他失败</p>
  * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
-class DescribeNatFwVpcDnsLstResponse extends AbstractModel
+class ModifyIsolateTableResponse extends AbstractModel
 {
     /**
-     * @var array <p>nat防火墙vpc dns 信息数组</p>
+     * @var integer <p>0 成功  非0失败</p>
      */
-    public $VpcDnsSwitchLst;
+    public $ReturnCode;
 
     /**
-     * @var string <p>返回参数 success成功 failed 失败</p>
+     * @var string <p>success 成功 其他失败</p>
      */
     public $ReturnMsg;
-
-    /**
-     * @var integer <p>开关总条数</p>
-     */
-    public $Total;
 
     /**
      * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
@@ -52,9 +45,8 @@ class DescribeNatFwVpcDnsLstResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param array $VpcDnsSwitchLst <p>nat防火墙vpc dns 信息数组</p>
-     * @param string $ReturnMsg <p>返回参数 success成功 failed 失败</p>
-     * @param integer $Total <p>开关总条数</p>
+     * @param integer $ReturnCode <p>0 成功  非0失败</p>
+     * @param string $ReturnMsg <p>success 成功 其他失败</p>
      * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -70,21 +62,12 @@ class DescribeNatFwVpcDnsLstResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("VpcDnsSwitchLst",$param) and $param["VpcDnsSwitchLst"] !== null) {
-            $this->VpcDnsSwitchLst = [];
-            foreach ($param["VpcDnsSwitchLst"] as $key => $value){
-                $obj = new VpcDnsInfo();
-                $obj->deserialize($value);
-                array_push($this->VpcDnsSwitchLst, $obj);
-            }
+        if (array_key_exists("ReturnCode",$param) and $param["ReturnCode"] !== null) {
+            $this->ReturnCode = $param["ReturnCode"];
         }
 
         if (array_key_exists("ReturnMsg",$param) and $param["ReturnMsg"] !== null) {
             $this->ReturnMsg = $param["ReturnMsg"];
-        }
-
-        if (array_key_exists("Total",$param) and $param["Total"] !== null) {
-            $this->Total = $param["Total"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
