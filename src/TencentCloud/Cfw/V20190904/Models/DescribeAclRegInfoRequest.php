@@ -18,20 +18,20 @@ namespace TencentCloud\Cfw\V20190904\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * ModifyRunSyncAsset请求参数结构体
+ * DescribeAclRegInfo请求参数结构体
  *
- * @method integer getType() 获取<p>0: 互联网防火墙开关，1：vpc 防火墙开关</p>
- * @method void setType(integer $Type) 设置<p>0: 互联网防火墙开关，1：vpc 防火墙开关</p>
+ * @method array getFwType() 获取防火墙类型 SERIAL：串行、NAT：NAT防火墙，BYPASS：旁路防火墙
+ * @method void setFwType(array $FwType) 设置防火墙类型 SERIAL：串行、NAT：NAT防火墙，BYPASS：旁路防火墙
  */
-class ModifyRunSyncAssetRequest extends AbstractModel
+class DescribeAclRegInfoRequest extends AbstractModel
 {
     /**
-     * @var integer <p>0: 互联网防火墙开关，1：vpc 防火墙开关</p>
+     * @var array 防火墙类型 SERIAL：串行、NAT：NAT防火墙，BYPASS：旁路防火墙
      */
-    public $Type;
+    public $FwType;
 
     /**
-     * @param integer $Type <p>0: 互联网防火墙开关，1：vpc 防火墙开关</p>
+     * @param array $FwType 防火墙类型 SERIAL：串行、NAT：NAT防火墙，BYPASS：旁路防火墙
      */
     function __construct()
     {
@@ -46,8 +46,8 @@ class ModifyRunSyncAssetRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Type",$param) and $param["Type"] !== null) {
-            $this->Type = $param["Type"];
+        if (array_key_exists("FwType",$param) and $param["FwType"] !== null) {
+            $this->FwType = $param["FwType"];
         }
     }
 }

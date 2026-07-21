@@ -18,19 +18,19 @@ namespace TencentCloud\Cfw\V20190904\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * ModifyRunSyncAsset返回参数结构体
+ * DescribeAclRegInfo返回参数结构体
  *
- * @method integer getStatus() 获取<p>0：同步成功，1：资产更新中，2：后台同步调用失败</p>
- * @method void setStatus(integer $Status) 设置<p>0：同步成功，1：资产更新中，2：后台同步调用失败</p>
+ * @method array getData() 获取规则支持的地域列表
+ * @method void setData(array $Data) 设置规则支持的地域列表
  * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
-class ModifyRunSyncAssetResponse extends AbstractModel
+class DescribeAclRegInfoResponse extends AbstractModel
 {
     /**
-     * @var integer <p>0：同步成功，1：资产更新中，2：后台同步调用失败</p>
+     * @var array 规则支持的地域列表
      */
-    public $Status;
+    public $Data;
 
     /**
      * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
@@ -38,7 +38,7 @@ class ModifyRunSyncAssetResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param integer $Status <p>0：同步成功，1：资产更新中，2：后台同步调用失败</p>
+     * @param array $Data 规则支持的地域列表
      * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -54,8 +54,13 @@ class ModifyRunSyncAssetResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Status",$param) and $param["Status"] !== null) {
-            $this->Status = $param["Status"];
+        if (array_key_exists("Data",$param) and $param["Data"] !== null) {
+            $this->Data = [];
+            foreach ($param["Data"] as $key => $value){
+                $obj = new AclRegInfo();
+                $obj->deserialize($value);
+                array_push($this->Data, $obj);
+            }
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
